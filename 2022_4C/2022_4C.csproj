@@ -1,0 +1,940 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F4587C77-C133-449D-9A8C-2DFE09AC826E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>_2022_4C</RootNamespace>
+    <AssemblyName>2022_4C</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.17\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.17\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=3.1.14.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.3.1.14\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.17\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.17\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.17\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.EntityFrameworkCore, Version=3.1.14.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.EntityFrameworkCore.3.1.14\lib\netstandard2.0\MySql.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net48\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net48\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="data\database.cs" />
+    <Compile Include="DB\BA\data_BAAdmin.cs" />
+    <Compile Include="DB\BA\data_BAAttendanceSheet.cs" />
+    <Compile Include="DB\BA\data_BAEmployee.cs" />
+    <Compile Include="DB\BA\data_BAExpenseAccount.cs" />
+    <Compile Include="DB\BA\data_BALeave.cs" />
+    <Compile Include="DB\EE\data_EEEnterArena.cs" />
+    <Compile Include="DB\EE\data_EEExitArena.cs" />
+    <Compile Include="DB\FI\data_FIDisbursement.cs" />
+    <Compile Include="DB\FI\data_FIFiance.cs" />
+    <Compile Include="DB\FI\data_FIRates.cs" />
+    <Compile Include="DB\FI\data_FIReturnRent.cs" />
+    <Compile Include="DB\FI\data_FIVehicleCharge.cs" />
+    <Compile Include="DB\IN\data_INOwnerBlacklist.cs" />
+    <Compile Include="DB\IN\data_INViolationVehicle.cs" />
+    <Compile Include="DB\IN\data_VehicleBlacklist.cs" />
+    <Compile Include="DB\IR\data_IRRentOut.cs" />
+    <Compile Include="DB\IR\data_IRState.cs" />
+    <Compile Include="DB\LO\data_LOEnterExit.cs" />
+    <Compile Include="DB\LO\data_LOPark.cs" />
+    <Compile Include="DB\LO\data_LOParkingArea.cs" />
+    <Compile Include="DB\LO\data_LOIdleRent.cs" />
+    <Compile Include="DB\MyDbContext.cs" />
+    <Compile Include="DB\OF\data_OFFixedVehicle.cs" />
+    <Compile Include="DB\OF\data_OFIdleRent.cs" />
+    <Compile Include="DB\OF\data_OFSpecielVehicle.cs" />
+    <Compile Include="DB\OF\data_OFTemporaryVehicle.cs" />
+    <Compile Include="DB\OF\data_OFUnlicensedVehicle.cs" />
+    <Compile Include="DB\PA\data_PAPark.cs" />
+    <Compile Include="DB\PA\data_PAParkingArea.cs" />
+    <Compile Include="DB\PA\data_PAParkingSpot.cs" />
+    <Compile Include="DB\PU\data_PUConstructionItem.cs" />
+    <Compile Include="DB\PU\data_PUEngineeringConstruction.cs" />
+    <Compile Include="DB\PU\data_PUEquipment.cs" />
+    <Compile Include="DB\PU\data_PUEquipmentPurchasing.cs" />
+    <Compile Include="DB\TR\data_TRMalfunction.cs" />
+    <Compile Include="DB\TR\data_TRVehicleTraffic.cs" />
+    <Compile Include="DB\VE\data_VEFixedVehicle.cs" />
+    <Compile Include="DB\VE\data_VESpecialVehicle.cs" />
+    <Compile Include="DB\VE\data_VEUnlicensedVehicle.cs" />
+    <Compile Include="DB\VE\date_VETemporaryVehicle.cs" />
+    <Compile Include="DB\VO\data_VOFixedVehicle.cs" />
+    <Compile Include="DB\VO\data_VOUnlicensedVehicle.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainAdmin.Designer.cs">
+      <DependentUpon>FormMainAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainEmployee.Designer.cs">
+      <DependentUpon>FormMainEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainUser.Designer.cs">
+      <DependentUpon>FormMainUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Accident\form_sonInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Accident\form_sonInsert.Designer.cs">
+      <DependentUpon>form_sonInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Accident\uc_Accident.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Accident\uc_Accident.Designer.cs">
+      <DependentUpon>uc_Accident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Blacklist\form_Insert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Blacklist\form_Insert.Designer.cs">
+      <DependentUpon>form_Insert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Blacklist\uc_Blacklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Blacklist\uc_Blacklist.Designer.cs">
+      <DependentUpon>uc_Blacklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Blacklist\uc_insertSonOwner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Blacklist\uc_insertSonOwner.Designer.cs">
+      <DependentUpon>uc_insertSonOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Blacklist\uc_insertSonVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Blacklist\uc_insertSonVehicle.Designer.cs">
+      <DependentUpon>uc_insertSonVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Carport\Insert\form_Insert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Carport\Insert\form_Insert.Designer.cs">
+      <DependentUpon>form_Insert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Carport\uc_Carport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Carport\uc_Carport.Designer.cs">
+      <DependentUpon>uc_Carport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\form_changePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\form_changePassword.Designer.cs">
+      <DependentUpon>form_changePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\form_expendInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\form_expendInsert.Designer.cs">
+      <DependentUpon>form_expendInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\uc_askForLeave.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\uc_askForLeave.Designer.cs">
+      <DependentUpon>uc_askForLeave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\uc_expend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\uc_expend.Designer.cs">
+      <DependentUpon>uc_expend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\uc_mainImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\forEmployee\uc_mainImage.Designer.cs">
+      <DependentUpon>uc_mainImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\form_BAEAInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\form_BAEAInsert.Designer.cs">
+      <DependentUpon>form_BAEAInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\form_BAEAUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\form_BAEAUpdate.Designer.cs">
+      <DependentUpon>form_BAEAUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\form_VacationUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\form_VacationUpdate.Designer.cs">
+      <DependentUpon>form_VacationUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_ChangeEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_ChangeEmployee.Designer.cs">
+      <DependentUpon>uc_ChangeEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_ChangeThis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_ChangeThis.Designer.cs">
+      <DependentUpon>uc_ChangeThis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonChaekingIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonChaekingIn.Designer.cs">
+      <DependentUpon>uc_sonChaekingIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_EmployeeImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_EmployeeImage.Designer.cs">
+      <DependentUpon>uc_EmployeeImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonAskForLeave.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonAskForLeave.Designer.cs">
+      <DependentUpon>uc_sonAskForLeave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonChangePassword.Designer.cs">
+      <DependentUpon>uc_sonChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonExpend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\EmployeeImage\uc_sonExpend.Designer.cs">
+      <DependentUpon>uc_sonExpend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_FixedVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_FixedVehicle.Designer.cs">
+      <DependentUpon>uc_FixedVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonEnterExit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonEnterExit.Designer.cs">
+      <DependentUpon>uc_sonEnterExit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonIdleRentLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonIdleRentLog.Designer.cs">
+      <DependentUpon>uc_sonIdleRentLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonParkLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonParkLog.Designer.cs">
+      <DependentUpon>uc_sonParkLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonParkSpotLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\FixedVehicle\uc_sonParkSpotLog.Designer.cs">
+      <DependentUpon>uc_sonParkSpotLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_disSonUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_disSonUpdate.Designer.cs">
+      <DependentUpon>form_disSonUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_dis_sonInsertArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_dis_sonInsertArea.Designer.cs">
+      <DependentUpon>form_dis_sonInsertArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_Insert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_Insert.Designer.cs">
+      <DependentUpon>form_Insert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_InsertArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Park\Insert\form_InsertArea.Designer.cs">
+      <DependentUpon>form_InsertArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Park\Insert\uc_DisArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Park\Insert\uc_DisArea.Designer.cs">
+      <DependentUpon>uc_DisArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Park\uc_Park.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Park\uc_Park.Designer.cs">
+      <DependentUpon>uc_Park.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Rent\form_RentOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Rent\form_RentOut.Designer.cs">
+      <DependentUpon>form_RentOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Rent\form_StopRent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Rent\form_StopRent.Designer.cs">
+      <DependentUpon>form_StopRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Rent\uc_Rent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Rent\uc_Rent.Designer.cs">
+      <DependentUpon>uc_Rent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Rent\uc_sonRent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Rent\uc_sonRent.Designer.cs">
+      <DependentUpon>uc_sonRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Repairs\form_repairSonInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Repairs\form_repairSonInsert.Designer.cs">
+      <DependentUpon>form_repairSonInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Repairs\uc_Repairs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Repairs\uc_Repairs.Designer.cs">
+      <DependentUpon>uc_Repairs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_ConInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_ConInsert.Designer.cs">
+      <DependentUpon>form_ConInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_Eng.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_Eng.Designer.cs">
+      <DependentUpon>form_Eng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_Equ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_Equ.Designer.cs">
+      <DependentUpon>form_Equ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_EquInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\form_EquInsert.Designer.cs">
+      <DependentUpon>form_EquInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Disbursement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Disbursement.Designer.cs">
+      <DependentUpon>uc_Disbursement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Engineering.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Engineering.Designer.cs">
+      <DependentUpon>uc_Engineering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Fiance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Fiance.Designer.cs">
+      <DependentUpon>uc_Fiance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Rates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_Rates.Designer.cs">
+      <DependentUpon>uc_Rates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_ReturnRent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_ReturnRent.Designer.cs">
+      <DependentUpon>uc_ReturnRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonCharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonCharge.Designer.cs">
+      <DependentUpon>uc_sonCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonEqu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonEqu.Designer.cs">
+      <DependentUpon>uc_sonEqu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonExpend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonExpend.Designer.cs">
+      <DependentUpon>uc_sonExpend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonFiance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_sonFiance.Designer.cs">
+      <DependentUpon>uc_sonFiance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_VehicleCharge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\Charge\uc_VehicleCharge.Designer.cs">
+      <DependentUpon>uc_VehicleCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonFixedVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonFixedVehicle.Designer.cs">
+      <DependentUpon>uc_sonFixedVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonIdleVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonIdleVehicle.Designer.cs">
+      <DependentUpon>uc_sonIdleVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonOrderForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonOrderForm.Designer.cs">
+      <DependentUpon>uc_sonOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonSpecialVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonSpecialVehicle.Designer.cs">
+      <DependentUpon>uc_sonSpecialVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonTemporaryVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonTemporaryVehicle.Designer.cs">
+      <DependentUpon>uc_sonTemporaryVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonUnlicensedVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\uc_sonUnlicensedVehicle.Designer.cs">
+      <DependentUpon>uc_sonUnlicensedVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\Statement\uc_Statement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\Statement\uc_Statement.Designer.cs">
+      <DependentUpon>uc_Statement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\Enter\EnterExit\form_unlicensedVehicleEnter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\Enter\EnterExit\form_unlicensedVehicleEnter.Designer.cs">
+      <DependentUpon>form_unlicensedVehicleEnter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\Enter\uc_Enter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\Enter\uc_Enter.Designer.cs">
+      <DependentUpon>uc_Enter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\Enter\uc_Exit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\Enter\uc_Exit.Designer.cs">
+      <DependentUpon>uc_Exit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\form_OrderFormInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\form_OrderFormInsert.Designer.cs">
+      <DependentUpon>form_OrderFormInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\form_OrderFormUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\form_OrderFormUpdate.Designer.cs">
+      <DependentUpon>form_OrderFormUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\uc_FixedVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\uc_FixedVehicle.Designer.cs">
+      <DependentUpon>uc_FixedVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\uc_sonOrderForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\FixVehicle\uc_sonOrderForm.Designer.cs">
+      <DependentUpon>uc_sonOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\TemVehicle\uc_TemporaryVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\TemVehicle\uc_TemporaryVehicle.Designer.cs">
+      <DependentUpon>uc_TemporaryVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\uc_TemVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\uc_TemVehicle.Designer.cs">
+      <DependentUpon>uc_TemVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib\TemVehicle\UnVehicle\uc_UnlicensedVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="lib\TemVehicle\UnVehicle\uc_UnlicensedVehicle.Designer.cs">
+      <DependentUpon>uc_UnlicensedVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\GenerateASNum.cs" />
+    <Compile Include="src\GenerateChargeNum.cs" />
+    <Compile Include="src\GenerateDisNum.cs" />
+    <Compile Include="src\GenerateEANum.cs" />
+    <Compile Include="src\GenerateExitNum.cs" />
+    <Compile Include="src\GenerateFVOwnerID.cs" />
+    <Compile Include="src\GeneratelEnterNum.cs" />
+    <Compile Include="src\GenerateLNum.cs" />
+    <Compile Include="src\GeneratelOFTVNum.cs" />
+    <Compile Include="src\GenerateLOIRNum.cs" />
+    <Compile Include="src\GenerateLOParkingAreaNum.cs" />
+    <Compile Include="src\GenerateLOParkNum.cs" />
+    <Compile Include="src\GeneratelPAParkingSpot.cs" />
+    <Compile Include="src\GenerateOFFVNum.cs" />
+    <Compile Include="src\GenerateOFIRNum.cs" />
+    <Compile Include="src\GenerateOFSVNum.cs" />
+    <Compile Include="src\GenerateOFUVNum.cs" />
+    <Compile Include="src\GeneratePASystemNum.cs" />
+    <Compile Include="src\GenerateRENum.cs" />
+    <Compile Include="src\GenerateUVOwnerID.cs" />
+    <Compile Include="src\GeneratleLOEENum.cs" />
+    <Compile Include="src\GenetrateLicensePlateNum.cs" />
+    <Compile Include="src\GrenerateTraNum.cs" />
+    <Compile Include="src\InsertUserInformation.cs" />
+    <Compile Include="src\UserInformation.cs" />
+    <Compile Include="src\GenerateYMD.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainAdmin.resx">
+      <DependentUpon>FormMainAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainEmployee.resx">
+      <DependentUpon>FormMainEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainUser.resx">
+      <DependentUpon>FormMainUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Accident\form_sonInsert.resx">
+      <DependentUpon>form_sonInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Accident\uc_Accident.resx">
+      <DependentUpon>uc_Accident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Blacklist\form_Insert.resx">
+      <DependentUpon>form_Insert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Blacklist\uc_Blacklist.resx">
+      <DependentUpon>uc_Blacklist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Blacklist\uc_insertSonOwner.resx">
+      <DependentUpon>uc_insertSonOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Blacklist\uc_insertSonVehicle.resx">
+      <DependentUpon>uc_insertSonVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Carport\Insert\form_Insert.resx">
+      <DependentUpon>form_Insert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Carport\uc_Carport.resx">
+      <DependentUpon>uc_Carport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\forEmployee\form_changePassword.resx">
+      <DependentUpon>form_changePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\forEmployee\form_expendInsert.resx">
+      <DependentUpon>form_expendInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\forEmployee\uc_askForLeave.resx">
+      <DependentUpon>uc_askForLeave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\forEmployee\uc_expend.resx">
+      <DependentUpon>uc_expend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\forEmployee\uc_mainImage.resx">
+      <DependentUpon>uc_mainImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\form_BAEAInsert.resx">
+      <DependentUpon>form_BAEAInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\form_BAEAUpdate.resx">
+      <DependentUpon>form_BAEAUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\form_VacationUpdate.resx">
+      <DependentUpon>form_VacationUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\uc_ChangeEmployee.resx">
+      <DependentUpon>uc_ChangeEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\uc_ChangeThis.resx">
+      <DependentUpon>uc_ChangeThis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\uc_sonChaekingIn.resx">
+      <DependentUpon>uc_sonChaekingIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\uc_EmployeeImage.resx">
+      <DependentUpon>uc_EmployeeImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\uc_sonAskForLeave.resx">
+      <DependentUpon>uc_sonAskForLeave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\uc_sonChangePassword.resx">
+      <DependentUpon>uc_sonChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\EmployeeImage\uc_sonExpend.resx">
+      <DependentUpon>uc_sonExpend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\FixedVehicle\uc_FixedVehicle.resx">
+      <DependentUpon>uc_FixedVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\FixedVehicle\uc_sonEnterExit.resx">
+      <DependentUpon>uc_sonEnterExit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\FixedVehicle\uc_sonIdleRentLog.resx">
+      <DependentUpon>uc_sonIdleRentLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\FixedVehicle\uc_sonParkLog.resx">
+      <DependentUpon>uc_sonParkLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\FixedVehicle\uc_sonParkSpotLog.resx">
+      <DependentUpon>uc_sonParkSpotLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Park\Insert\form_disSonUpdate.resx">
+      <DependentUpon>form_disSonUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Park\Insert\form_dis_sonInsertArea.resx">
+      <DependentUpon>form_dis_sonInsertArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Park\Insert\form_Insert.resx">
+      <DependentUpon>form_Insert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Park\Insert\form_InsertArea.resx">
+      <DependentUpon>form_InsertArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Park\Insert\uc_DisArea.resx">
+      <DependentUpon>uc_DisArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Park\uc_Park.resx">
+      <DependentUpon>uc_Park.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Rent\form_RentOut.resx">
+      <DependentUpon>form_RentOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Rent\form_StopRent.resx">
+      <DependentUpon>form_StopRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Rent\uc_Rent.resx">
+      <DependentUpon>uc_Rent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Rent\uc_sonRent.resx">
+      <DependentUpon>uc_sonRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Repairs\form_repairSonInsert.resx">
+      <DependentUpon>form_repairSonInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Repairs\uc_Repairs.resx">
+      <DependentUpon>uc_Repairs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\form_ConInsert.resx">
+      <DependentUpon>form_ConInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\form_Eng.resx">
+      <DependentUpon>form_Eng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\form_Equ.resx">
+      <DependentUpon>form_Equ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\form_EquInsert.resx">
+      <DependentUpon>form_EquInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_Disbursement.resx">
+      <DependentUpon>uc_Disbursement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_Engineering.resx">
+      <DependentUpon>uc_Engineering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_Fiance.resx">
+      <DependentUpon>uc_Fiance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_Rates.resx">
+      <DependentUpon>uc_Rates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_ReturnRent.resx">
+      <DependentUpon>uc_ReturnRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_sonCharge.resx">
+      <DependentUpon>uc_sonCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_sonEqu.resx">
+      <DependentUpon>uc_sonEqu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_sonExpend.resx">
+      <DependentUpon>uc_sonExpend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_sonFiance.resx">
+      <DependentUpon>uc_sonFiance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\Charge\uc_VehicleCharge.resx">
+      <DependentUpon>uc_VehicleCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\uc_sonFixedVehicle.resx">
+      <DependentUpon>uc_sonFixedVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\uc_sonIdleVehicle.resx">
+      <DependentUpon>uc_sonIdleVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\uc_sonOrderForm.resx">
+      <DependentUpon>uc_sonOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\uc_sonSpecialVehicle.resx">
+      <DependentUpon>uc_sonSpecialVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\uc_sonTemporaryVehicle.resx">
+      <DependentUpon>uc_sonTemporaryVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\uc_sonUnlicensedVehicle.resx">
+      <DependentUpon>uc_sonUnlicensedVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\Statement\uc_Statement.resx">
+      <DependentUpon>uc_Statement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\Enter\EnterExit\form_unlicensedVehicleEnter.resx">
+      <DependentUpon>form_unlicensedVehicleEnter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\Enter\uc_Enter.resx">
+      <DependentUpon>uc_Enter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\Enter\uc_Exit.resx">
+      <DependentUpon>uc_Exit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\FixVehicle\form_OrderFormInsert.resx">
+      <DependentUpon>form_OrderFormInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\FixVehicle\form_OrderFormUpdate.resx">
+      <DependentUpon>form_OrderFormUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\FixVehicle\uc_FixedVehicle.resx">
+      <DependentUpon>uc_FixedVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\FixVehicle\uc_sonOrderForm.resx">
+      <DependentUpon>uc_sonOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\TemVehicle\uc_TemporaryVehicle.resx">
+      <DependentUpon>uc_TemporaryVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\uc_TemVehicle.resx">
+      <DependentUpon>uc_TemVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lib\TemVehicle\UnVehicle\uc_UnlicensedVehicle.resx">
+      <DependentUpon>uc_UnlicensedVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="db_tcc.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\Carport\Delete\" />
+    <Folder Include="lib\Carport\Divide\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
