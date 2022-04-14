@@ -254,7 +254,7 @@ namespace _2022_4C.lib.EmployeeImage
                 }
                 else
                 {
-                    string update = $"updata BAExpenseAccount set EAComment = '不批准' where EANum = '{num}'";
+                    string update = $"update BAExpenseAccount set EAComment = '不批准' where EANum = '{num}'";
                     OleDbCommand cmd = new OleDbCommand(update, database.dbConn);
                     cmd.ExecuteNonQuery();
                     OleDbDataAdapter inst_delete = new OleDbDataAdapter("select * from BAExpenseAccount where EANum = '{num}'", database.dbConn);

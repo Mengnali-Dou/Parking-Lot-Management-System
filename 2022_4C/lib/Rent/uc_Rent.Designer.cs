@@ -30,10 +30,10 @@ namespace _2022_4C.lib.Rent
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRent = new System.Windows.Forms.Button();
             this.btnIdleRent = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRent = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +45,17 @@ namespace _2022_4C.lib.Rent
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(357, 744);
             this.panel1.TabIndex = 9;
+            // 
+            // btnRent
+            // 
+            this.btnRent.Font = new System.Drawing.Font("宋体", 10F);
+            this.btnRent.Location = new System.Drawing.Point(58, 211);
+            this.btnRent.Name = "btnRent";
+            this.btnRent.Size = new System.Drawing.Size(231, 54);
+            this.btnRent.TabIndex = 24;
+            this.btnRent.Text = "闲时出租";
+            this.btnRent.UseVisualStyleBackColor = true;
+            this.btnRent.Click += new System.EventHandler(this.btnRent_Click);
             // 
             // btnIdleRent
             // 
@@ -59,6 +70,7 @@ namespace _2022_4C.lib.Rent
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Location = new System.Drawing.Point(366, 26);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1509, 843);
@@ -70,22 +82,11 @@ namespace _2022_4C.lib.Rent
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("宋体", 30F);
-            this.label1.Location = new System.Drawing.Point(68, 70);
+            this.label1.Location = new System.Drawing.Point(45, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 52);
+            this.label1.Size = new System.Drawing.Size(274, 52);
             this.label1.TabIndex = 11;
-            this.label1.Text = "闲时出租";
-            // 
-            // btnRent
-            // 
-            this.btnRent.Font = new System.Drawing.Font("宋体", 10F);
-            this.btnRent.Location = new System.Drawing.Point(58, 211);
-            this.btnRent.Name = "btnRent";
-            this.btnRent.Size = new System.Drawing.Size(231, 54);
-            this.btnRent.TabIndex = 24;
-            this.btnRent.Text = "闲时出租";
-            this.btnRent.UseVisualStyleBackColor = true;
-            this.btnRent.Click += new System.EventHandler(this.btnRent_Click);
+            this.label1.Text = "云车位管理";
             // 
             // uc_Rent
             // 

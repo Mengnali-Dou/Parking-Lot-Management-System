@@ -171,7 +171,7 @@ namespace _2022_4C.lib.Statement.Charge
             dataGridView1.Columns[1].HeaderText = "设备名";
             dataGridView1.Columns[2].HeaderText = "设备单价";
             dataGridView1.Columns[3].HeaderText = "备注";
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 3; i++)
             {
                 dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }

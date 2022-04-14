@@ -125,7 +125,7 @@ namespace _2022_4C.lib.FixedVehicle
                     DialogResult dialog3 = MessageBox.Show("确定删除？", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (dialog3 == DialogResult.OK)
                     {
-                        delete = $"delete LOIDleRent where LOIRNum = '{num}'";
+                        delete = $"delete from LOIDleRent where LOIRNum = '{num}'";
                         OleDbCommand cmd = new OleDbCommand(delete, database.dbConn);
                         cmd.ExecuteNonQuery();
                         DialogResult dialog4 = MessageBox.Show("删除成功", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);

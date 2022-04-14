@@ -84,7 +84,7 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(377, 29);
             this.toolStripStatusLabel1.Spring = true;
-            this.toolStripStatusLabel1.Text = "欢迎使用停车场管理系统";
+            this.toolStripStatusLabel1.Text = "欢迎使用云车位管理系统";
             // 
             // toolStripStatusLabel2
             // 
@@ -127,7 +127,7 @@
             // btnEmployeeImage
             // 
             this.btnEmployeeImage.Font = new System.Drawing.Font("宋体", 10F);
-            this.btnEmployeeImage.Location = new System.Drawing.Point(12, 38);
+            this.btnEmployeeImage.Location = new System.Drawing.Point(1519, 38);
             this.btnEmployeeImage.Name = "btnEmployeeImage";
             this.btnEmployeeImage.Size = new System.Drawing.Size(370, 49);
             this.btnEmployeeImage.TabIndex = 2;
@@ -171,11 +171,11 @@
             // btnJournal
             // 
             this.btnJournal.Font = new System.Drawing.Font("宋体", 10F);
-            this.btnJournal.Location = new System.Drawing.Point(1519, 39);
+            this.btnJournal.Location = new System.Drawing.Point(12, 39);
             this.btnJournal.Name = "btnJournal";
             this.btnJournal.Size = new System.Drawing.Size(371, 49);
             this.btnJournal.TabIndex = 6;
-            this.btnJournal.Text = "闲时出租";
+            this.btnJournal.Text = "云车位管理";
             this.btnJournal.UseVisualStyleBackColor = true;
             this.btnJournal.Click += new System.EventHandler(this.btnFixedVehicle_Click);
             // 
@@ -249,7 +249,7 @@
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMainAdmin";
-            this.Text = "停车场管理系统";
+            this.Text = "云车位管理系统";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

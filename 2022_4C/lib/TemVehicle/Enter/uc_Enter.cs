@@ -107,7 +107,7 @@ namespace _2022_4C.lib.TemVehicle.Enter
                 {
                     if (type == "无牌车辆")
                     {
-                        // TODO:无牌车辆进场
+                        // 无牌车辆进场
                         form_unlicensedVehicleEnter form = new form_unlicensedVehicleEnter(park);
                         form.ShowDialog();
                     }
@@ -246,7 +246,7 @@ namespace _2022_4C.lib.TemVehicle.Enter
                                     OleDbCommand cmd8 = new OleDbCommand(insertFIRR, database.dbConn);
                                     cmd8.ExecuteNonQuery();
 
-                                    // TODO:支出
+                                    // 支出
                                     string DisNum = GenerateDisNum.DisNum(park);
 
                                     string insertFIDis = $"insert into FIDisbursement (DisNum,DisTime,DisProject,DisSum,ChargeOperator) values ('{DisNum}','{time}','闲时出租租金返还','{cost}','{oper}')";
@@ -257,7 +257,7 @@ namespace _2022_4C.lib.TemVehicle.Enter
                         }
                         else
                         {
-                            // TODO:特殊车辆进场
+                            // 特殊车辆进场
                             // 特殊车辆进场订单
                             string OFSVNum = GenerateOFSVNum.OFSVNum(park);    // 订单号
                             string dt = DateTime.Now.ToString();

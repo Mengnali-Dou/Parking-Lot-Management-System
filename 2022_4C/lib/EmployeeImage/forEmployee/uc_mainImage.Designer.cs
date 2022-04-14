@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnChangePassWord = new System.Windows.Forms.Button();
-            this.btnExpend = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnAskForLeave = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -56,7 +55,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnChangePassWord);
-            this.panel1.Controls.Add(this.btnExpend);
             this.panel1.Controls.Add(this.btnAttendance);
             this.panel1.Controls.Add(this.btnAskForLeave);
             this.panel1.Location = new System.Drawing.Point(3, 125);
@@ -67,7 +65,7 @@
             // btnChangePassWord
             // 
             this.btnChangePassWord.Font = new System.Drawing.Font("宋体", 10F);
-            this.btnChangePassWord.Location = new System.Drawing.Point(63, 466);
+            this.btnChangePassWord.Location = new System.Drawing.Point(62, 424);
             this.btnChangePassWord.Name = "btnChangePassWord";
             this.btnChangePassWord.Size = new System.Drawing.Size(231, 54);
             this.btnChangePassWord.TabIndex = 23;
@@ -75,21 +73,10 @@
             this.btnChangePassWord.UseVisualStyleBackColor = true;
             this.btnChangePassWord.Click += new System.EventHandler(this.btnChangePassWord_Click);
             // 
-            // btnExpend
-            // 
-            this.btnExpend.Font = new System.Drawing.Font("宋体", 10F);
-            this.btnExpend.Location = new System.Drawing.Point(63, 386);
-            this.btnExpend.Name = "btnExpend";
-            this.btnExpend.Size = new System.Drawing.Size(231, 54);
-            this.btnExpend.TabIndex = 22;
-            this.btnExpend.Text = "报销";
-            this.btnExpend.UseVisualStyleBackColor = true;
-            this.btnExpend.Click += new System.EventHandler(this.btnExpend_Click);
-            // 
             // btnAttendance
             // 
             this.btnAttendance.Font = new System.Drawing.Font("宋体", 10F);
-            this.btnAttendance.Location = new System.Drawing.Point(63, 304);
+            this.btnAttendance.Location = new System.Drawing.Point(62, 345);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(231, 54);
             this.btnAttendance.TabIndex = 21;
@@ -100,7 +87,7 @@
             // btnAskForLeave
             // 
             this.btnAskForLeave.Font = new System.Drawing.Font("宋体", 10F);
-            this.btnAskForLeave.Location = new System.Drawing.Point(63, 224);
+            this.btnAskForLeave.Location = new System.Drawing.Point(62, 265);
             this.btnAskForLeave.Name = "btnAskForLeave";
             this.btnAskForLeave.Size = new System.Drawing.Size(231, 54);
             this.btnAskForLeave.TabIndex = 20;
@@ -149,7 +136,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnChangePassWord;
-        private System.Windows.Forms.Button btnExpend;
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnAskForLeave;
         private System.Windows.Forms.DataGridView dataGridView1;

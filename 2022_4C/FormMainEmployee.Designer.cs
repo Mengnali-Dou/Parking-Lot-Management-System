@@ -68,16 +68,16 @@
             // 
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F);
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(377, 29);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(369, 29);
             this.toolStripStatusLabel1.Spring = true;
-            this.toolStripStatusLabel1.Text = "欢迎使用停车场管理系统";
+            this.toolStripStatusLabel1.Text = "欢迎使用云车位管理系统";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F);
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(377, 29);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(369, 29);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "管理员";
             // 
@@ -85,7 +85,7 @@
             // 
             this.toolStripStatusLabel3.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F);
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(377, 29);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(369, 29);
             this.toolStripStatusLabel3.Spring = true;
             this.toolStripStatusLabel3.Text = "操作员：admin01";
             // 
@@ -93,7 +93,7 @@
             // 
             this.toolStripStatusLabel4.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F);
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(377, 29);
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(369, 29);
             this.toolStripStatusLabel4.Spring = true;
             this.toolStripStatusLabel4.Text = "登陆时间：";
             // 
@@ -101,7 +101,7 @@
             // 
             this.toolStripStatusLabel5.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F);
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(377, 29);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(369, 29);
             this.toolStripStatusLabel5.Spring = true;
             this.toolStripStatusLabel5.Text = "当前时间：";
             // 
@@ -211,7 +211,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMainEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "停车场管理系统";
+            this.Text = "云车位管理系统";
             this.Load += new System.EventHandler(this.FormMainEmployee_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

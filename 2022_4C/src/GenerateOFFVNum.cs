@@ -18,7 +18,7 @@ namespace _2022_4C.src
         public static string num()
         {
             string mantissa = null;
-            string select = $"select OFFVNum from OFFixedVehicle where EnterTime like '{DateTime.Now.ToShortDateString().ToString()}'";
+            string select = $"select OFFVNum from OFFixedVehicle where ExpireTime like '{DateTime.Now.ToShortDateString().ToString()}'";
             OleDbDataAdapter inst = new OleDbDataAdapter(select, database.dbConn);
             DataTable dt = new DataTable();
             inst.Fill(dt);

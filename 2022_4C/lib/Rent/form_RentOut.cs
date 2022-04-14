@@ -23,7 +23,7 @@ namespace _2022_4C.lib.Rent
         {
             database.dbConn.Open();
 
-            string park = txtPark.Text;
+            string park = this.txtPark.Text;
             string parkingSpot = txtParkingSpot.Text;
 
             if (park == string.Empty)
@@ -46,7 +46,7 @@ namespace _2022_4C.lib.Rent
                 }
                 else
                 {
-                    string selPark = $"select * from Park where PSystemNum = '{park}'";
+                    string selPark = $"select * from PAPark where PSystemNum = '{park}'";
                     OleDbDataAdapter cmd1 = new OleDbDataAdapter(selPark, database.dbConn);
                     DataTable dt1 = new DataTable();
                     cmd1.Fill(dt1);
